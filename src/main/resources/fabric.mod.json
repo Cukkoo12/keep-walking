@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "keepwalking",
+  "version": "${version}",
+  "name": "Keep Walking",
+  "description": "Allows WASD movement and jumping while inventory screens are open. Prevents singleplayer pause on handled screens.",
+  "authors": ["Cukkoo"],
+  "contact": {
+    "sources": "https://github.com/Cukkoo12/keep-walking"
+  },
+  "license": "MIT",
+  "icon": "assets/keepwalking/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": ["com.cukkoo.keepwalking.KeepWalkingClient"]
+  },
+  "mixins": ["keepwalking.mixins.json"],
+  "depends": {
+    "fabricloader": ">=0.18.5",
+    "fabric-api": ">=0.145.4",
+    "minecraft": ">=26.1.0"
+  },
+  "suggests": {
+    "modmenu": "*",
+    "cloth-config2": "*"
+  }
+}

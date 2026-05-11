@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.cukkoo.keepwalking.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [],
+  "client": [
+    "KeyboardInputMixin",
+    "AbstractContainerScreenMixin",
+    "KeyMappingAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
