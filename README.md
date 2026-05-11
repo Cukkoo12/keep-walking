@@ -1,49 +1,49 @@
 # Keep Walking
 
-[![Minecraft](https://img.shields.io/badge/Minecraft-26.1.2-brightgreen)](https://minecraft.net)
-[![Fabric Loader](https://img.shields.io/badge/Fabric%20Loader-0.18.5-orange)](https://fabricmc.net)
-[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
+**Move freely while your inventory is open.**
 
-Move freely while your inventory is open — no more standing still when managing items.
+No more freezing in place every time you open a chest, crafting table, or your inventory. With Keep Walking, your character keeps responding to movement keys even when a container screen is active.
 
 ![Demo](demo.gif)
 
+---
+
 ## Features
 
-- **WASD movement** through all container screens (inventory, chests, crafting table, etc.)
-- **Jumping** while screens are open
-- **No pause in singleplayer** — the world keeps ticking behind your inventory
-- Respects your **key bindings** — works with rebinded movement keys
+- **Full WASD movement** while any container screen is open (inventory, chests, furnaces, crafting tables, hoppers, dispensers, brewing stands, anvils, etc.)
+- **Jump** while browsing your inventory
+- **Sprint and sneak** still work as expected
+- **No singleplayer pause** — the world keeps running behind your screen
+- **Respects your keybinds** — works with remapped movement keys
+- **Zero configuration** — install and go, nothing to set up
 
-## How It Works
+## Compatibility
 
-Two lightweight mixins that patch vanilla behavior:
+| | Version |
+|---|---|
+| Minecraft | 26.1.x |
+| Mod Loader | [Fabric](https://fabricmc.net) |
+| Fabric API | 0.145.4+ |
+| Side | Client only |
 
-| Mixin | Target | Effect |
-|-------|--------|--------|
-| `KeyboardInputMixin` | `KeyboardInput.tick()` | Polls raw GLFW key state for movement keys when an `AbstractContainerScreen` is open, bypassing screen input capture |
-| `AbstractContainerScreenMixin` | `AbstractContainerScreen.isPauseScreen()` | Returns `false` so the integrated server doesn't pause in singleplayer |
-
-Vanilla consumes movement key events when a container screen is open — the screen's `keyPressed` handler intercepts them before they reach the key binding system. This mod checks the physical keyboard state directly via `InputConstants.isKeyDown()` when a container screen is active, then computes both `keyPresses` and `moveVector` exactly like vanilla does.
+This mod is **client-side only** — it works in singleplayer and on any server without the server needing the mod installed.
 
 ## Installation
 
 1. Install [Fabric Loader](https://fabricmc.net/use/) for Minecraft 26.1.x
-2. Install [Fabric API](https://modrinth.com/mod/fabric-api) (0.145.4+)
-3. Download `keep-walking-1.0.0.jar` from [Releases](https://github.com/Cukkoo12/keep-walking/releases)
-4. Place in `.minecraft/mods/`
+2. Install [Fabric API](https://modrinth.com/mod/fabric-api)
+3. Drop `keep-walking-1.0.0.jar` into your `.minecraft/mods/` folder
+4. Launch the game
 
-## Build from Source
+## How does it work?
 
-```bash
-git clone https://github.com/Cukkoo12/keep-walking.git
-cd keep-walking
-./gradlew build
-# JAR in build/libs/
-```
+Vanilla Minecraft stops processing movement key inputs when a container screen is open. Keep Walking uses two lightweight mixins to bypass this:
 
-Requirements: Java 25, Gradle 9.4+
+- **Movement keys are polled directly** from the keyboard when a container screen is detected, bypassing the screen's input capture
+- **Singleplayer pause is disabled** for container screens so the world keeps ticking
+
+No packets are modified, no server-side changes are made. It simply lets your character respond to keys that were always being pressed.
 
 ## License
 
-MIT — do whatever you want.
+[MIT](LICENSE) — do whatever you want.

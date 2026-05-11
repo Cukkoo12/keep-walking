@@ -40,3 +40,6 @@ saves/
 screenshots/
 resourcepacks/
 kayıt.mp4
+
+# Project rules (contains API tokens)
+CLAUDE.md
