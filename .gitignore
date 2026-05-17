@@ -41,5 +41,10 @@ screenshots/
 resourcepacks/
 kayıt.mp4
 
+# Sub-project build artifacts (Forge / NeoForge)
+*/build/
+*/.gradle/
+*/run/
+
 # Project rules (contains API tokens)
 CLAUDE.md

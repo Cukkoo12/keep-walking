@@ -1,0 +1,12 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT License"
+
+[[mods]]
+modId="keepwalking"
+version="${mod_version}"
+displayName="Keep Walking"
+description="Allows WASD movement and jumping while inventory screens are open. Prevents singleplayer pause on handled screens."
+logoFile="assets/keepwalking/icon.png"
+credits="Cukkoo"
+authors="Cukkoo"
